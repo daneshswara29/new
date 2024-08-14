@@ -1,5 +1,5 @@
 <img width="100%" alt="IMG_20240814_192429.jpg"
-src="https://github.com/daneshswara29/new/assets/154574742/aff0ba0b-f07e-43a9-bc88-e379b3e285d9">
+src="https://github.com/daneshswara29/new/main/IMG_20240814_192429.jpg">
 
 # INSTALL 
 
