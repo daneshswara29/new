@@ -26,8 +26,8 @@ http://t.me/D_swara
 - • Support Multi-path/Path Custom
 - • Auto Locked Multi Login
 - • Bisa Setting Untuk Multi Loginnya Mau Langsung Di Delete Atau Di Locked
-#Ubuntu 20
-#Debian 10
+- • Ubuntu 20
+- • Debian 10
 
 ## TAMPILAN MENU
 <img width="100%" alt="IMG_20240814_192429.jpg"
