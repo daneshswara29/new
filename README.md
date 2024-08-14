@@ -15,8 +15,8 @@ http://wa.me/6282380835972
 http://t.me/D_swara
 ```
 ## FITUR
-#• Limit IP
-#• Limit Quota (Xray Only)
+- • Limit IP
+- • Limit Quota (Xray Only)
 #• Backup/Restore Via Bot
 #• Auto Backup Bot Telegram
 #• Trial Dalam Hitungan Menit
