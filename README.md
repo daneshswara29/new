@@ -7,7 +7,7 @@ apt update && apt upgrade -y && apt install build-essential -y && apt-get instal
 ```
 # IZIN IP
 - izin ip 10k 30hari
-- open source/hak milik 100k
+- open source/hak milik 150k
 - hubungi me
 ```
 http://wa.me/6282380835972
