@@ -337,13 +337,11 @@ wget -O issue "https://raw.githubusercontent.com/daneshswara29/install/main/inst
 wget -O m-theme "https://raw.githubusercontent.com/daneshswara29/install/main/menu/m-theme.sh"
 wget -O speedtest "https://raw.githubusercontent.com/daneshswara29/install/main/speedtest_cli.py"
 wget -O xp "https://raw.githubusercontent.com/daneshswara29/install/main/install/xp.sh"
-wget -O m-noobz "https://raw.githubusercontent.com/hamidw/new/main/menu/m-noobz.sh"
 
 chmod +x issue
 chmod +x m-theme
 chmod +x speedtest
 chmod +x xp
-chmod +x m-noobz
 cd
 
 #if [ ! -f "/etc/cron.d/xp_otm" ]; then
@@ -372,8 +370,7 @@ END
 cat> /etc/cron.d/xraylimit << END
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-0
-*/1 * * * * root /usr/bin/xraylimit
+*/30 * * * * root /usr/bin/xraylimit
 END
 
 service cron restart >/dev/null 2>&1
