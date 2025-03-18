@@ -23,73 +23,7 @@ apt-get autoremove -y
 apt install -y --no-install-recommends software-properties-common
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
-sudo DEBIAN_FRONTEND=noninteractive apt-get install libio-socket-inet6-perl libsocket6-perl libcrypt-ssleay-perl libnet-libidn-perl perl libio-socket-ssl-perl libwww-perl libpcre3 libpcre3-dev zlib1g-dev dbus iftop zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr dnsutils sudo at htop iptables bsdmainutils cron lsof lnav -y
-
-#Install tools
-apt install binutils -y
-apt install socat -y
-apt install lolcat -y
-apt install ruby -y
-gem install lolcat
-apt install lolcat -y
-apt install wget curl -y
-apt install htop -y
-#apt install speedtest-cli -y
-apt install cron -y
-apt install figlet -y
-apt install zip unzip -y
-apt install jq -y
-apt install certbot -y
-apt install python2 -y
-apt install python3 -y
-apt install screen -y
-apt install haproxy -y
-apt install at -y
-# Setup Konfiguration Multiport for port 443
-# Mendapatkan informasi distribusi OS
-os_name=$(lsb_release -si)
-os_version=$(lsb_release -sr)
-
-# Kondisi untuk Ubuntu 24.04 dan Debian 12
-if [[ "$os_name" == "Ubuntu" && "$os_version" == "24.04" ]]; then
-    echo "Menjalankan setup untuk Ubuntu 24.04."
-    rm -fr /etc/haproxy
-    systemctl stop haproxy
-    systemctl disable haproxy
-    apt install stunnel4 -y
-    cat > /etc/stunnel/stunnel.conf <<-END
-cert = /etc/xray/funny.pem
-client = no
-socket = a:SO_REUSEADDR=1
-socket = l:TCP_NODELAY=1
-socket = r:TCP_NODELAY=1
-
-[https]
-accept = 777
-connect = 127.0.0.1:18020
-END
-elif [[ "$os_name" == "Debian" && "$os_version" == "12" ]]; then
-    echo "Menjalankan setup untuk Debian 12."
-    rm -fr /etc/haproxy
-    systemctl stop haproxy
-    systemctl disable haproxy
-    apt install stunnel4 -y
-    cat > /etc/stunnel/stunnel.conf <<-END
-cert = /etc/xray/funny.pem
-client = no
-socket = a:SO_REUSEADDR=1
-socket = l:TCP_NODELAY=1
-socket = r:TCP_NODELAY=1
-
-[https]
-accept = 777
-connect = 127.0.0.1:18020
-END
-else
-    echo "Menjalankan setup untuk OS lainnya (Ubuntu 18/20/22, Debian 9/10/11, Kali Linux)."
-    rm -fr /etc/haproxy/haproxy.cfg
-    wget -q -O /etc/haproxy/haproxy.cfg "https://raw.githubusercontent.com/okysmilee3/Xnew/main/bahan/haproxy.cfg"
-fi
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install iptables iptables-persistent netfilter-persistent figlet ruby libxml-parser-perl squid nmap screen curl jq bzip2 gzip coreutils rsyslog iftop htop zip unzip net-tools sed gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl neofetch screenfetch lsof openssl openvpn easy-rsa tmux stunnel4 squid3 socat cron bash-completion ntpdate xz-utils apt-transport-https gnupg2 dnsutils lsb-release chrony libnss3-dev libnspr4-dev pkg-config libpam0g-dev libcap-ng-dev libcap-ng-utils libselinux1-dev libcurl4-nss-dev flex bison make libnss3-tools libevent-dev xl2tpd pptpd apt git speedtest-cli p7zip-full libjpeg-dev zlib1g-dev python python3 python3-pip shc build-essential nodejs nginx php php-fpm php-cli php-mysql p7zip-full
 
 # remove unnecessary files
 sudo apt-get autoclean -y >/dev/null 2>&1
